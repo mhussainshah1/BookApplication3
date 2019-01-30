@@ -16,14 +16,18 @@ public class BookApp {
         List<Book> databaseBookList = database.getBooks();
 
         Scanner keyboard = new Scanner(System.in);
-        System.out.println("Enter  5 books ");
-
         String bookNameInput, bookName;
         List<Book> customerBookList = new ArrayList<>();
 
+        for(int i=0; i<5; i++){
+            System.out.print("Enter book SKU: ");
+            Book book = database.getBook(keyboard.nextLine());
+            customerBookList.add(book);
+        }
+
         for(Book book:databaseBookList){
-            bookNameInput = keyboard.next();
-            bookName = book.getTitle();
+            bookNameInput = keyboard.next().toLowerCase();
+            bookName = book.getTitle().toLowerCase();
             if(bookName.contains(bookNameInput)){
                 customerBookList.add(book);
             }

@@ -32,7 +32,7 @@ public class BookDatabase {
     List<Book> books;
 
     public BookDatabase() {
-        List<Book> books = new ArrayList<>();
+        books = new ArrayList<>();
         books.add(new Book("Java1001","Head First Java","Kathy Sierra and Bert Bates","Easy to read Java workbook",	47.50, true));
         books.add(new Book("Java1002","Thinking in Java","Bruce Eckel","Details about Java under the hood",20.00,true));
         books.add(new Book("Orcl1003","OCP: Oracle Certified Professional Java SE","Jeanne Boyarsky","Everything you need to know in one place",45.00,true));
@@ -47,7 +47,7 @@ public class BookDatabase {
                 return book;
             }
         }
-        return null; //ASK MELISSA
+        return null; //ASK MELISSA!!!!
     }
 
     public List<Book> getBooks() {
