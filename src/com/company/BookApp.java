@@ -13,36 +13,36 @@ import java.util.Scanner;
 public class BookApp {
     public static void main(String[] args) {
         BookDatabase database = new BookDatabase();
-        List<Book> databaseBookList = database.getBooks();
 
         Scanner keyboard = new Scanner(System.in);
-        String bookNameInput, bookName;
         List<Book> customerBookList = new ArrayList<>();
 
+        Book book;
+        String SKU;
         for(int i=0; i<5; i++){
             System.out.print("Enter book SKU: ");
-            Book book = database.getBook(keyboard.nextLine());
+            SKU = keyboard.next();
+            book = database.getBook(SKU);
             customerBookList.add(book);
         }
-
-        for(Book book:databaseBookList){
-            bookNameInput = keyboard.next().toLowerCase();
-            bookName = book.getTitle().toLowerCase();
-            if(bookName.contains(bookNameInput)){
-                customerBookList.add(book);
-            }
-        }
+//        String bookNameInput, bookName;
+//        for(Book book:databaseBookList){
+//            bookNameInput = keyboard.next().toLowerCase();
+//            bookName = book.getTitle().toLowerCase();
+//            if(bookName.contains(bookNameInput)){
+//                customerBookList.add(book);
+//            }
+//        }
         BookApp app = new BookApp();
-        System.out.println("The total price of five books are "+app.getTotal(customerBookList));
+        System.out.println("The total price is "+app.getTotal(customerBookList));
    }
 
     public double getTotal(List<Book> books){
-        int sum = 0;
+        double sum = 0.0;
         for(Book book : books){
             if(book.isInStock()){
                 sum += book.getPrice() ;
             } else {
-                //If they are not in stock, that should be handled appropriately
                 System.out.println(book.getTitle() +" is out of stock");
             }
         }

@@ -105,7 +105,7 @@ public class BookDatabase {
 
     public Book getBook(String SKU){
         for (Book book: books) {
-            if(SKU.equals(book.getSKU())){
+            if(SKU.equalsIgnoreCase(book.getSKU())){
                 return book;
             }
         }
