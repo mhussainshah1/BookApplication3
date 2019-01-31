@@ -86,8 +86,6 @@ import java.util.List;
  * </tr>
  * </tfoot>
  * </table>
- *
- *
  */
 public class BookDatabase {
 
